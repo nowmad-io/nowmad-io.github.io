@@ -1,0 +1,44 @@
+.inputWrapper {
+  border-bottom: 2px solid #FFFFFF;
+  display: flex;
+  align-items: 'center';
+}
+
+.input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #FFFFFF;
+  width: 100%;
+  font-size: 20px;
+  line-height: 36px;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    border: none;
+    -webkit-text-fill-color: #FFFFFF;
+    -webkit-box-shadow: none;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.action {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 500;
+
+  &.noAction {
+    cursor: default;
+  }
+}

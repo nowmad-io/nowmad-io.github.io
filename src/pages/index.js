@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react'
 import { Container, Row, Col } from 'reactstrap';
 import Slider from 'react-slick';
+import axios from 'axios';
 
 import Layout from '../components/layout'
+import Input from '../components/input'
 
-import styles from './index.module.scss';
+import styles from './styles.module.scss';
 import googlePlayBadge from "../assets/images/google-play-badge.png"
 import logoFullWhite from "../assets/images/logo-full-white.png"
 import nexus5 from "../assets/images/nexus5.png"
@@ -14,23 +16,42 @@ import screenshot3 from "../assets/images/screenshots/screenshot3.jpg"
 
 export default class IndexPage extends PureComponent {
   constructor(props) {
-      super(props);
+    super(props);
 
-      this.state = {
-        slideSettings: {
-          arrows: true,
-          infinite: true,
-          speed: 200,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: true,
-          autoplaySpeed: 3000,
-        },
-      };
+    this.state = {
+      slideSettings: {
+        arrows: true,
+        infinite: true,
+        speed: 200,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+      },
+      value: '',
+      submitted: false,
+    };
+  }
+
+  onChange = (value) => this.setState({
+    value,
+    submitted: false,
+  });
+
+  onNotifyMe = (event) => {
+    event.preventDefault();
+    const { submitted, value } = this.state;
+
+    if (submitted) {
+      return;
     }
 
+    this.setState({ submitted: true });
+    axios.post('https://api.nowmad.io/api/notifyme/', { email: value });
+  }
+
   render() {
-    const { slideSettings } = this.state;
+    const { slideSettings, value, submitted } = this.state;
 
     return (
       <Layout>
@@ -50,6 +71,16 @@ export default class IndexPage extends PureComponent {
               <p className={styles.p}>
                 You can get notify when the IOS version is released.
               </p>
+              <form onSubmit={this.onNotifyMe}>
+                <Input
+                  name="email"
+                  placeholder="Email address"
+                  actionText={submitted ? "Thank you !" : "Notify me"}
+                  onActionClick={this.onNotifyMe}
+                  value={value}
+                  onChange={this.onChange}
+                />
+              </form>
             </Col>
             <Col>
               <div className={styles.nexusFrame}>
