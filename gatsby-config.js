@@ -6,7 +6,7 @@ module.exports = {
       options: {
         name: 'Nowmad',
         start_url: '/',
-        icon: 'src/images/logo.png',
+        icon: 'src/assets/images/logo.png',
       },
     },
     {
