@@ -69,7 +69,7 @@ export default class IndexPage extends PureComponent {
       <Layout>
         <Container>
           <Row>
-            <Col>
+            <Col sm="7">
               <img className={styles.logo} src={logoFullWhite} alt="Nowmad Logo"/>
               <h1 className={styles.h1}>
                 Trust your friends<br />
@@ -94,7 +94,7 @@ export default class IndexPage extends PureComponent {
                 />
               </form>
             </Col>
-            <Col>
+            <Col sm="5">
               <div className={styles.frameWrapper}>
                 <img
                   onClick={this.onLeftClick}
