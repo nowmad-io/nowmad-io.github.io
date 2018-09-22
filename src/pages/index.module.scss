@@ -1,3 +1,45 @@
-.image {
-  height: 125px;
+.logo {
+  width: 284px;
+  margin-top: 48px;
+  margin-left: -30px;
 }
+
+.h1 {
+  margin-top: 50px;
+}
+
+.h2 {
+  margin-top: 24px;
+}
+
+.image {
+  height: 100px;
+  margin-left: -18px;
+  margin-top: 50px;
+}
+
+.p {
+  margin-top: 12px;
+}
+
+.nexusFrame {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 436px;
+
+    .slickSlider {
+      position: absolute;
+      z-index: 99;
+      top: 8.1%;
+      left: 5.4%;
+      right: 5.3%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
