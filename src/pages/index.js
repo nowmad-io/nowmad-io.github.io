@@ -13,6 +13,8 @@ import nexus5 from "../assets/images/nexus5.png"
 import screenshot1 from "../assets/images/screenshots/screenshot1.jpg"
 import screenshot2 from "../assets/images/screenshots/screenshot2.jpg"
 import screenshot3 from "../assets/images/screenshots/screenshot3.jpg"
+import rightArrow from "../assets/images/right-arrow.png"
+import leftArrow from "../assets/images/left-arrow.png"
 
 export default class IndexPage extends PureComponent {
   constructor(props) {
@@ -31,6 +33,8 @@ export default class IndexPage extends PureComponent {
       value: '',
       submitted: false,
     };
+
+    this._slider = React.createRef();
   }
 
   onChange = (value) => this.setState({
@@ -48,6 +52,14 @@ export default class IndexPage extends PureComponent {
 
     this.setState({ submitted: true });
     axios.post('https://api.nowmad.io/api/notifyme/', { email: value });
+  }
+
+  onLeftClick = () => {
+    this._slider.current.slickPrev();
+  }
+
+  onRightClick = () => {
+    this._slider.current.slickNext();
   }
 
   render() {
@@ -83,19 +95,37 @@ export default class IndexPage extends PureComponent {
               </form>
             </Col>
             <Col>
-              <div className={styles.nexusFrame}>
-                <img className="img-fluid img-center" src={nexus5} alt="nexus 5 frame" />
-                <Slider {...slideSettings} className={styles.slickSlider}>
-                  <div>
-                    <img src={screenshot1} alt="Nowmad screenshot 1" />
-                  </div>
-                  <div>
-                    <img src={screenshot2} alt="Nowmad screenshot 2" />
-                  </div>
-                  <div>
-                    <img src={screenshot3} alt="Nowmad screenshot 3" />
-                  </div>
-                </Slider>
+              <div className={styles.frameWrapper}>
+                <img
+                  onClick={this.onLeftClick}
+                  className={styles.arrow}
+                  src={leftArrow}
+                  alt="Left arrow"
+                />
+                <div className={styles.nexusFrame}>
+                  <img className="img-fluid img-center" src={nexus5} alt="nexus 5 frame" />
+                  <Slider
+                    ref={this._slider}
+                    {...slideSettings}
+                    className={styles.slickSlider}
+                  >
+                    <div>
+                      <img src={screenshot1} alt="Nowmad screenshot 1" />
+                    </div>
+                    <div>
+                      <img src={screenshot2} alt="Nowmad screenshot 2" />
+                    </div>
+                    <div>
+                      <img src={screenshot3} alt="Nowmad screenshot 3" />
+                    </div>
+                  </Slider>
+                </div>
+                <img
+                  onClick={this.onRightClick}
+                  className={styles.arrow}
+                  src={rightArrow}
+                  alt="Right arrow"
+                />
               </div>
             </Col>
           </Row>
