@@ -1,11 +1,15 @@
+.container {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
 .logo {
   height: 100px;
-  margin-top: 48px;
   margin-left: -30px;
 }
 
 .h1 {
-  margin-top: 50px;
+  margin-top: 36px;
 }
 
 .h2 {
@@ -15,11 +19,11 @@
 .image {
   height: 100px;
   margin-left: -18px;
-  margin-top: 50px;
+  margin-top: 12px;
 }
 
 .p {
-  margin-top: 12px;
+  margin-top: 32px;
 }
 
 .frameWrapper {
@@ -34,24 +38,43 @@
 }
 
 .nexusFrame {
-    display: block;
-    position: relative;
-    width: 100%;
-    margin: 0 14px;
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 8px 14px 0;
+  overflow: hidden;
+  max-width: 310px;
+
+  .slickSlider {
+    position: absolute;
+    z-index: 99;
+    top: 8.1%;
+    left: 5.5%;
+    right: 5.1%;
+    bottom: 13.5%;
     overflow: hidden;
-    max-width: 310px;
 
-    .slickSlider {
-      position: absolute;
-      z-index: 99;
-      top: 8.1%;
-      left: 5.5%;
-      right: 5.1%;
-      bottom: 13.5%;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-      }
+    img {
+      width: 100%;
     }
   }
+}
+
+@media (max-width: 1199px) {
+  .helper {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .frameWrapper {
+    margin-top: 48px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    margin-left: 0;
+  }
+}

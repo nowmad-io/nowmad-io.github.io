@@ -67,17 +67,21 @@ export default class IndexPage extends PureComponent {
 
     return (
       <Layout>
-        <Container>
+        <Container className={styles.container}>
           <Row>
-            <Col sm="7">
+            <Col>
               <img className={styles.logo} src={logoFullWhite} alt="Nowmad Logo"/>
+            </Col>
+          </Row>
+          <Row className={styles.infoWrapper}>
+            <Col lg="7">
               <h1 className={styles.h1}>
                 Trust your friends<br />
                 Go Travel<br />
                 Experience the World<br />
               </h1>
               <h2 className={styles.h2}>
-                Nowmad is an App that lets you share with your friends your best experiences and discover new ways of enjoing the world around you.
+                Nowmad lets you share with your friends your best experiences and discover new ways of enjoing the world around you.
               </h2>
               <img className={styles.image} src={googlePlayBadge} alt="Google Play Badge" />
               <p className={styles.p}>
@@ -94,7 +98,8 @@ export default class IndexPage extends PureComponent {
                 />
               </form>
             </Col>
-            <Col sm="5">
+            <Col xl="1" className={styles.helper}/>
+            <Col lg="5" xl="4">
               <div className={styles.frameWrapper}>
                 <img
                   onClick={this.onLeftClick}
