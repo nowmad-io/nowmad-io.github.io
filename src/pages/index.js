@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Slider from 'react-slick';
 import axios from 'axios';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import Layout from '../components/layout';
 import Input from '../components/input';
@@ -83,14 +84,14 @@ export default class IndexPage extends PureComponent {
               <h2 className={styles.h2}>
                 Nowmad lets you share with your friends your best experiences and discover new ways of enjoing the world around you.
               </h2>
-              <a
+              <OutboundLink
                 className={styles.link}
                 href="https://play.google.com/store/apps/details?id=com.nowmad"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img src={googlePlayBadge} alt="Google Play Badge" className={styles.image}/>
-              </a>
+              </OutboundLink>
               <p className={styles.p}>
                 You can get notify when the IOS version is released.
               </p>
