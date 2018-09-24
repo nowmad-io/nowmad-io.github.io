@@ -1,20 +1,20 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Slider from 'react-slick';
 import axios from 'axios';
 
-import Layout from '../components/layout'
-import Input from '../components/input'
+import Layout from '../components/layout';
+import Input from '../components/input';
 
 import styles from './styles.module.scss';
-import googlePlayBadge from "../assets/images/google-play-badge.png"
-import logoFullWhite from "../assets/images/logo-full-white.png"
-import nexus5 from "../assets/images/nexus5.png"
-import screenshot1 from "../assets/images/screenshots/screenshot1.jpg"
-import screenshot2 from "../assets/images/screenshots/screenshot2.jpg"
-import screenshot3 from "../assets/images/screenshots/screenshot3.jpg"
-import rightArrow from "../assets/images/right-arrow.png"
-import leftArrow from "../assets/images/left-arrow.png"
+import googlePlayBadge from "../assets/images/google-play-badge.png";
+import logoFullWhite from "../assets/images/logo-full-white.png";
+import nexus5 from "../assets/images/nexus5.png";
+import screenshot1 from "../assets/images/screenshots/screenshot1.jpg";
+import screenshot2 from "../assets/images/screenshots/screenshot2.jpg";
+import screenshot3 from "../assets/images/screenshots/screenshot3.jpg";
+import rightArrow from "../assets/images/right-arrow.png";
+import leftArrow from "../assets/images/left-arrow.png";
 
 export default class IndexPage extends PureComponent {
   constructor(props) {
@@ -83,7 +83,14 @@ export default class IndexPage extends PureComponent {
               <h2 className={styles.h2}>
                 Nowmad lets you share with your friends your best experiences and discover new ways of enjoing the world around you.
               </h2>
-              <img className={styles.image} src={googlePlayBadge} alt="Google Play Badge" />
+              <a
+                className={styles.link}
+                href="https://play.google.com/store/apps/details?id=com.nowmad"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={googlePlayBadge} alt="Google Play Badge" className={styles.image}/>
+              </a>
               <p className={styles.p}>
                 You can get notify when the IOS version is released.
               </p>
