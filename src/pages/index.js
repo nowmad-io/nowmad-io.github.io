@@ -52,7 +52,7 @@ export default class IndexPage extends PureComponent {
     }
 
     this.setState({ submitted: true });
-    axios.post('https://api.nowmad.io/api/notifyme/', { email: value });
+    axios.get(`${process.env.API_URL}/notifyme?email=${value}`);
   }
 
   onLeftClick = () => {
